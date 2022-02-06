@@ -15,12 +15,12 @@ export default (scene, xMax, yMax) => {
   scene.add(lineGRID)
   //Agregamos un texto como prueba
 
-  const earthDiv = document.createElement('div')
+  var earthDiv = document.createElement('div')
   earthDiv.className = 'label'
-  earthDiv.textContent = 'Hola prueba'
-  earthDiv.style.marginTop = '-1em'
+  earthDiv.textContent = `${yMax } m`
+  //earthDiv.style.marginTop = '-1em'
   const earthLabel = new CSS2DObject(earthDiv)
-  earthLabel.position.set(200,yMax, 0)
+  earthLabel.position.set(xMax,yMax, 0)
   lineGRID.add(earthLabel)
 
   //const labelRenderer = new CSS2DRenderer()

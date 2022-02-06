@@ -35,6 +35,7 @@ controls.enablePan = true
 
 // CSS2D renderer
 const labelRenderer = new CSS2DRenderer()
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(labelRenderer.domElement)
 
 // Animamos la escena dinamicamente
