@@ -30,7 +30,7 @@ camera.position.y = 0
 camera.lookAt(scene.position)
 // Agregamos el zoom y el pan
 var controls = new OrbitControls(camera, renderer.domElement)
-controls.enableRotate = true
+controls.enableRotate = false
 controls.enablePan = true
 
 // CSS2D renderer
