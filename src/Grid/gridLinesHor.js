@@ -20,14 +20,15 @@ export default (scene, xMax, yMax) => {
   earthDiv.textContent = 'Hola prueba'
   earthDiv.style.marginTop = '-1em'
   const earthLabel = new CSS2DObject(earthDiv)
-  earthLabel.position.set(5,1000, 0)
+  earthLabel.position.set(200,yMax, 0)
   lineGRID.add(earthLabel)
 
-  const labelRenderer = new CSS2DRenderer()
+  //const labelRenderer = new CSS2DRenderer()
   //labelRenderer.setSize(window.innerWidth, window.innerHeight)
   //labelRenderer.domElement.style.position = 'absolute'
   //labelRenderer.domElement.style.top = '0px'
-  document.body.appendChild(labelRenderer.domElement)
+  //document.body.appendChild(labelRenderer.domElement)
+  
 
   
 }

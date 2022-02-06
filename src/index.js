@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import topogafia from './topo/topogafia.js'
 import allSondeos from './sondeos/allSondeos.js'
 import gridAll from './Grid/gridAll.js'
+import {CSS2DRenderer,  CSS2DObject} from 'three/examples/jsm/renderers/CSS2DRenderer.js'
 import './main.css'
 
 // Creamos una escena y un bg definido
@@ -32,18 +33,19 @@ var controls = new OrbitControls(camera, renderer.domElement)
 controls.enableRotate = false
 controls.enablePan = true
 
-
-
+// CSS2D renderer
+const labelRenderer = new CSS2DRenderer()
+document.body.appendChild(labelRenderer.domElement)
 
 // Animamos la escena dinamicamente
 var animate = function () {
   requestAnimationFrame(animate)
   renderer.render(scene, camera)
+  labelRenderer.render(scene, camera);
 }
 // Funciones
 const axesHelper = new THREE.AxesHelper(50)
 scene.add(axesHelper)
-
 
 
 animate()
