@@ -4,7 +4,9 @@ import topogafia from './topo/topogafia.js'
 import allSondeos from './sondeos/allSondeos.js'
 import gridAll from './Grid/gridAll.js'
 import {CSS2DRenderer,  CSS2DObject} from 'three/examples/jsm/renderers/CSS2DRenderer.js'
+import logInteractive from './infoLogview/logInteractive.js';
 import './main.css'
+
 
 // Creamos una escena y un bg definido
 var scene = new THREE.Scene()
@@ -14,8 +16,8 @@ var scene = new THREE.Scene()
 var camera = new THREE.OrthographicCamera(0, 1, 1, 0, 1, 10000)
 // Creamos la camara
 // los valores de camera son (left,right,top, botton, near, far) y estan relacionados con las dimensiones del perfil
-let rigth = 1800
-let top = 1800
+let rigth = 1500
+let top = 1500
 var scaleFactor = 1
 var aspectRatio = (scaleFactor * window.innerWidth) / window.innerHeight
 
@@ -26,7 +28,6 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 camera.position.z = 1500
 camera.position.y = 0
-
 camera.lookAt(scene.position)
 // Agregamos el zoom y el pan
 var controls = new OrbitControls(camera, renderer.domElement)
@@ -44,14 +45,46 @@ var animate = function () {
   renderer.render(scene, camera)
   labelRenderer.render(scene, camera);
 }
-// Funciones
+// Agregamos axesHelper
 const axesHelper = new THREE.AxesHelper(50)
 scene.add(axesHelper)
 
+//TEST SPACE
+/*
+let divString = '<div>' +
+'<h1>This is an H1 Element.</h1>' +
+'</div>';
 
-animate()
+function createCSS2DObject(s) {
+  // convert the string to dome elements
+  var wrapper = document.createElement('div');
+  wrapper.innerHTML = s;
+  var div = wrapper.firstChild;
+
+  // set some values on the div to style it, standard CSS
+  div.style.width = '10px';
+  div.style.height = '10px';
+  div.style.opacity = 1;
+  div.style['will-change'] = 'all'
+  div.style.transition = 'top 0.2s linear'
+  div.style.background = new THREE.Color(Math.random() * 0xffffff).getStyle();
+
+  // create a CSS3Dobject and return it.
+  var object = new CSS2DObject(div);
+  object.position.x = 0
+  object.position.y = 1800
+  return object;
+}
+
+const cssElement = createCSS2DObject(divString);
+scene.add(cssElement); */
+
+
+// FUNCIONES
 topogafia(scene)
 allSondeos(scene)
 gridAll(scene)
+logInteractive(scene,camera)
+animate()
 
 

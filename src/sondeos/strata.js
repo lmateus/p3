@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 // Creamos un sondeo con una geometria tipo cilindro
 // Traemos informacion de la base de datos
-export default (scene,coord_x,coord_y,coord_z,depthLog,colorStrata) => {
+export default (scene,coord_x,coord_y,coord_z,depthLog,colorStrata,idStrata,idLog) => {
     // Localizacion del sondeo
     var coord_x = coord_x;
     var coord_y = coord_y;
@@ -9,6 +9,7 @@ export default (scene,coord_x,coord_y,coord_z,depthLog,colorStrata) => {
     // Propiedades del sondeo
     var depthLog = depthLog;
     var colorStrata = colorStrata;
+    var idStrata = idStrata;
     const widthLog = 1;
     const radialSegment = 20;
 
@@ -22,4 +23,8 @@ export default (scene,coord_x,coord_y,coord_z,depthLog,colorStrata) => {
     cylinder.rotateOnAxis.x = Math.PI/2;
 
     scene.add( cylinder);
+
+    cylinder.userData.draggable = true
+    cylinder.userData.name = idStrata
+    cylinder.userData.nameLog = idLog
 }

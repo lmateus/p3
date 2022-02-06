@@ -17,7 +17,7 @@ export default (scene, xMax, yMax) => {
 
   var myText = new SpriteText(yMax + ' m')
   myText.textHeight = 8
-  myText.position.x = -10
+  myText.position.x = -20
   myText.position.y = yMax
 
   var group = new THREE.Group()
